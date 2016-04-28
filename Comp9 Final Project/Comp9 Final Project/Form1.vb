@@ -9,24 +9,7 @@ Public Class Form1
     Dim EnBullets() As PictureBox = {p2b1, p2b2, p2b3, p2b4, p2b5}
     Dim enArray() As PictureBox = {picEn, picEn, picEn, picEn, picEn}
     Dim rnd As New Random
-    Public Class Ship
-        Private _health As Integer
-        'Private _damage As Double
-        Public speed As Integer = 20
-        Property Health As Integer
-            Get
-                Return _health
-            End Get
-            Set(value As Integer)
-                If value > 1 Then
-                    _health = value
-                Else
-                    _health = 1
-                End If
-            End Set
-        End Property
-    End Class
-
+   
     Dim player1 As Ship = New Ship()
     Dim player2 As Ship = New Ship()
 

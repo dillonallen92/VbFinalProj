@@ -8,7 +8,3 @@ H:\Comp9 Final Project\Comp9 Final Project\obj\Debug\Comp9 Final Project.vbproj.
 H:\Comp9 Final Project\Comp9 Final Project\obj\Debug\Comp9 Final Project.exe
 H:\Comp9 Final Project\Comp9 Final Project\obj\Debug\Comp9 Final Project.xml
 H:\Comp9 Final Project\Comp9 Final Project\obj\Debug\Comp9 Final Project.pdb
-C:\Users\Dillon Allen\Desktop\Comp9 Final Project\Comp9 Final Project\bin\Debug\Comp9 Final Project.exe.config
-C:\Users\Dillon Allen\Desktop\Comp9 Final Project\Comp9 Final Project\obj\Debug\Comp9 Final Project.exe
-C:\Users\Dillon Allen\Desktop\Comp9 Final Project\Comp9 Final Project\obj\Debug\Comp9 Final Project.xml
-C:\Users\Dillon Allen\Desktop\Comp9 Final Project\Comp9 Final Project\obj\Debug\Comp9 Final Project.pdb
