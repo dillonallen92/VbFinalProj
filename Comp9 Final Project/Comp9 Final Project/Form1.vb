@@ -14,7 +14,7 @@ Public Class Form1
     Dim player2 As Ship = New Ship()
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        'testing
     End Sub
 
     Private Sub Form1_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
