@@ -70,6 +70,13 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bullet.vb" />
+    <Compile Include="DatabaseForm.Designer.vb">
+      <DependentUpon>DatabaseForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Enemy.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
@@ -93,9 +100,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="PlayerDatabaseDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PlayerDatabaseDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Ship.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="DatabaseForm.resx">
+      <DependentUpon>DatabaseForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
@@ -119,12 +134,28 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="PlayerDatabaseDataSet.xsc">
+      <DependentUpon>PlayerDatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PlayerDatabaseDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PlayerDatabaseDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PlayerDatabaseDataSet.xss">
+      <DependentUpon>PlayerDatabaseDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Resources\space_bg.png" />
     <None Include="Resources\cloudEnemy.png" />
     <None Include="Resources\bl_ship.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Cloud.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PlayerDatabase.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

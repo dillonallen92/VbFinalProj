@@ -129,9 +129,17 @@ Public Class Form1
     Private Sub tmrBullet_Tick(sender As Object, e As EventArgs) Handles tmrBullet.Tick
 
         Dim Bullets() As PictureBox = {p1b1, p1b2, p1b3, p1b4, p1b5}
-
+        Dim picBullets(4) As Bullet
+        For i As Integer = 0 To 4
+            picBullets(i) = New Bullet
+        Next
+        
         For x As Integer = 0 To Bullets.Length - 1
-            Bullets(x).Left += 10
+            'Bullets(x).Left += 10
+            picBullets(x).Trajectory = "9"
+            picBullets(x).Position = Bullets(x).Location
+            picBullets(x).Direction()
+            Bullets(x).Location = picBullets(x).Position
         Next
         If bulletCol(picEn) Then
             picEn.SetBounds(888, 237, 0, 0) 'changes location
@@ -163,7 +171,9 @@ Public Class Form1
             End If
             If en.Location.X - 5 < 0 Then
                 en.SetBounds(888 - int * 2, 237 - int * 2, 0, 0)
-                prbHealth.Value -= 10 'player loses health if enemy makes it to the edge
+                If prbHealth.Value <> 0 Then
+                    prbHealth.Value -= 10 'player loses health if enemy makes it to the edge
+                End If
                 If prbHealth.Value = 0 Then
                     tmrBullet.Enabled = False
                     Timer1.Enabled = False
@@ -172,9 +182,9 @@ Public Class Form1
             End If
             If picPlayer.Bounds.IntersectsWith(en.Bounds) Then 'May need to be moved later
                 'picEn.SetBounds(100, Me.Width - 100, 0, 0) ' location of the enemy
-
-                prbHealth.Value -= 10
-
+                If prbHealth.Value <> 0 Then
+                    prbHealth.Value -= 10
+                End If
                 If prbHealth.Value = 0 Then
                     tmrBullet.Enabled = False
                     Timer1.Enabled = False
@@ -324,4 +334,7 @@ Public Class Form1
     End Sub
 
 
+    Private Sub ViewToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ViewToolStripMenuItem.Click
+        DatabaseForm.Visible = True
+    End Sub
 End Class

@@ -53,10 +53,10 @@
         End Set
     End Property
     Public Sub New()
-        _rank = "pawn"
-        _damage = 10
-        _health = 100
-        _speed = 20
+        Rank = "pawn"
+        Damage = 10
+        Health = 100
+        Speed = 20
     End Sub
     Public Sub New(ByVal strRank, ByVal dblDamage, ByVal intHealth, ByVal intSpeed)
         Rank = strRank
