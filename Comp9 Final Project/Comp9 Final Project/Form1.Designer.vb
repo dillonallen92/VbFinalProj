@@ -35,6 +35,8 @@ Partial Class Form1
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.InstructionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DatabaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ViewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.tmrBullet = New System.Windows.Forms.Timer(Me.components)
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.tmrEnBullet = New System.Windows.Forms.Timer(Me.components)
@@ -54,8 +56,6 @@ Partial Class Form1
         Me.p1b1 = New System.Windows.Forms.PictureBox()
         Me.picEn = New System.Windows.Forms.PictureBox()
         Me.picPlayer = New System.Windows.Forms.PictureBox()
-        Me.DatabaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ViewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.picEn5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picEn4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -148,13 +148,13 @@ Partial Class Form1
         'NormalToolStripMenuItem
         '
         Me.NormalToolStripMenuItem.Name = "NormalToolStripMenuItem"
-        Me.NormalToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
+        Me.NormalToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.NormalToolStripMenuItem.Text = "Normal"
         '
         'MultiplayerToolStripMenuItem
         '
         Me.MultiplayerToolStripMenuItem.Name = "MultiplayerToolStripMenuItem"
-        Me.MultiplayerToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
+        Me.MultiplayerToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.MultiplayerToolStripMenuItem.Text = "Multiplayer"
         '
         'HelpToolStripMenuItem
@@ -176,6 +176,19 @@ Partial Class Form1
         Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.AboutToolStripMenuItem.Text = "About"
         '
+        'DatabaseToolStripMenuItem
+        '
+        Me.DatabaseToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ViewToolStripMenuItem})
+        Me.DatabaseToolStripMenuItem.Name = "DatabaseToolStripMenuItem"
+        Me.DatabaseToolStripMenuItem.Size = New System.Drawing.Size(67, 20)
+        Me.DatabaseToolStripMenuItem.Text = "Database"
+        '
+        'ViewToolStripMenuItem
+        '
+        Me.ViewToolStripMenuItem.Name = "ViewToolStripMenuItem"
+        Me.ViewToolStripMenuItem.Size = New System.Drawing.Size(99, 22)
+        Me.ViewToolStripMenuItem.Text = "View"
+        '
         'tmrBullet
         '
         Me.tmrBullet.Interval = 1
@@ -190,6 +203,7 @@ Partial Class Form1
         '
         'picEn5
         '
+        Me.picEn5.BackColor = System.Drawing.Color.Transparent
         Me.picEn5.Image = Global.WindowsApplication1.My.Resources.Resources.cloudEnemy
         Me.picEn5.Location = New System.Drawing.Point(888, 404)
         Me.picEn5.Name = "picEn5"
@@ -200,6 +214,7 @@ Partial Class Form1
         '
         'picEn4
         '
+        Me.picEn4.BackColor = System.Drawing.Color.Transparent
         Me.picEn4.Image = Global.WindowsApplication1.My.Resources.Resources.cloudEnemy
         Me.picEn4.Location = New System.Drawing.Point(888, 145)
         Me.picEn4.Name = "picEn4"
@@ -210,6 +225,7 @@ Partial Class Form1
         '
         'picEn3
         '
+        Me.picEn3.BackColor = System.Drawing.Color.Transparent
         Me.picEn3.Image = Global.WindowsApplication1.My.Resources.Resources.cloudEnemy
         Me.picEn3.Location = New System.Drawing.Point(888, 206)
         Me.picEn3.Name = "picEn3"
@@ -220,6 +236,7 @@ Partial Class Form1
         '
         'picEn2
         '
+        Me.picEn2.BackColor = System.Drawing.Color.Transparent
         Me.picEn2.Image = Global.WindowsApplication1.My.Resources.Resources.cloudEnemy
         Me.picEn2.Location = New System.Drawing.Point(888, 273)
         Me.picEn2.Name = "picEn2"
@@ -335,6 +352,7 @@ Partial Class Form1
         '
         'picEn
         '
+        Me.picEn.BackColor = System.Drawing.Color.Transparent
         Me.picEn.Image = Global.WindowsApplication1.My.Resources.Resources.cloudEnemy
         Me.picEn.Location = New System.Drawing.Point(888, 339)
         Me.picEn.Name = "picEn"
@@ -345,6 +363,7 @@ Partial Class Form1
         '
         'picPlayer
         '
+        Me.picPlayer.BackColor = System.Drawing.Color.Transparent
         Me.picPlayer.Image = Global.WindowsApplication1.My.Resources.Resources.bl_ship
         Me.picPlayer.Location = New System.Drawing.Point(89, 245)
         Me.picPlayer.Name = "picPlayer"
@@ -352,19 +371,6 @@ Partial Class Form1
         Me.picPlayer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
         Me.picPlayer.TabIndex = 23
         Me.picPlayer.TabStop = False
-        '
-        'DatabaseToolStripMenuItem
-        '
-        Me.DatabaseToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ViewToolStripMenuItem})
-        Me.DatabaseToolStripMenuItem.Name = "DatabaseToolStripMenuItem"
-        Me.DatabaseToolStripMenuItem.Size = New System.Drawing.Size(67, 20)
-        Me.DatabaseToolStripMenuItem.Text = "Database"
-        '
-        'ViewToolStripMenuItem
-        '
-        Me.ViewToolStripMenuItem.Name = "ViewToolStripMenuItem"
-        Me.ViewToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.ViewToolStripMenuItem.Text = "View"
         '
         'Form1
         '
@@ -396,7 +402,7 @@ Partial Class Form1
         Me.Controls.Add(Me.picPlayer)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.Text = "Cloud"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         CType(Me.picEn5, System.ComponentModel.ISupportInitialize).EndInit()

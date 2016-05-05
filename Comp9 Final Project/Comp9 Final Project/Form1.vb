@@ -93,6 +93,7 @@ Public Class Form1
                 Case Keys.Space 'bullet for player one
                     If game.Equals("Over") = False Then
                         Bullets(intCount).Location = picPlayer.Location
+
                         tmrBullet.Enabled = True
 
                         Bullets(intCount).Visible = True
