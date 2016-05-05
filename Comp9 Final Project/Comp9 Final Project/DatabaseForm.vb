@@ -1,4 +1,5 @@
-﻿Public Class DatabaseForm
+﻿'Imports System.Data.OleDb
+Public Class DatabaseForm
 
     Dim idCount As Integer = 1
 

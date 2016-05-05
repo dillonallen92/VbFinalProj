@@ -22,3 +22,7 @@ C:\Users\00282102\Downloads\VbFinalProj-database\VbFinalProj-master\Comp9 Final 
 C:\Users\00282102\Downloads\VbFinalProj-database\VbFinalProj-master\Comp9 Final Project\Comp9 Final Project\obj\Debug\WindowsApplication1.Form1.resources
 C:\Users\00282102\Downloads\VbFinalProj-database\VbFinalProj-master\Comp9 Final Project\Comp9 Final Project\obj\Debug\WindowsApplication1.Resources.resources
 C:\Users\00282102\Downloads\VbFinalProj-database\VbFinalProj-master\Comp9 Final Project\Comp9 Final Project\obj\Debug\Comp9 Final Project.vbproj.GenerateResource.Cache
+C:\Users\00289640\Downloads\VbFinalProj-master (1)\VbFinalProj-master\Comp9 Final Project\Comp9 Final Project\bin\Debug\Comp9 Final Project.exe.config
+C:\Users\00289640\Downloads\VbFinalProj-master (1)\VbFinalProj-master\Comp9 Final Project\Comp9 Final Project\obj\Debug\Comp9 Final Project.exe
+C:\Users\00289640\Downloads\VbFinalProj-master (1)\VbFinalProj-master\Comp9 Final Project\Comp9 Final Project\obj\Debug\Comp9 Final Project.xml
+C:\Users\00289640\Downloads\VbFinalProj-master (1)\VbFinalProj-master\Comp9 Final Project\Comp9 Final Project\obj\Debug\Comp9 Final Project.pdb
