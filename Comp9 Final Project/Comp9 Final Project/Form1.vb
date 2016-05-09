@@ -7,7 +7,7 @@ Public Class Form1
     Dim game As String = ""
     Dim Bullets() As PictureBox = {p1b1, p1b2, p1b3, p1b4, p1b5}
     Dim EnBullets() As PictureBox = {p2b1, p2b2, p2b3, p2b4, p2b5}
-    Dim enArray() As PictureBox = {picEn, picEn, picEn, picEn, picEn}
+    'Dim enArray() As PictureBox = {picEn, picEn, picEn, picEn, picEn}
     Dim rnd As New Random
    
     Dim player1 As Ship = New Ship()
@@ -128,7 +128,7 @@ Public Class Form1
     End Sub
 
     Private Sub tmrBullet_Tick(sender As Object, e As EventArgs) Handles tmrBullet.Tick
-
+        'player 1 bullet timer
         Dim Bullets() As PictureBox = {p1b1, p1b2, p1b3, p1b4, p1b5}
         Dim picBullets(4) As Bullet
         For i As Integer = 0 To 4
@@ -142,15 +142,15 @@ Public Class Form1
             picBullets(x).Direction()
             Bullets(x).Location = picBullets(x).Position
         Next
-        If bulletCol(picEn) Then
-            picEn.SetBounds(888, 237, 0, 0) 'changes location
-            prbEnHp.Value -= 10
-            If prbEnHp.Value = 0 Then
-                tmrBullet.Enabled = False
-                tmrEnBullet.Enabled = False
-                GameOver()
-            End If
-        End If
+        'If bulletCol(picEn) Then
+        'picEn.SetBounds(888, 237, 0, 0) 'changes location
+        'prbEnHp.Value -= 10
+        'If prbEnHp.Value = 0 Then
+        'tmrBullet.Enabled = False
+        'tmrEnBullet.Enabled = False
+        'GameOver()
+        'End If
+        'End If
 
     End Sub
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
@@ -223,6 +223,7 @@ Public Class Form1
         picEn5.Visible = True
         prbEnHp.Visible = False
         Label2.Visible = False
+        lblScore.Text = "0"
         score = 0
     End Sub
 
