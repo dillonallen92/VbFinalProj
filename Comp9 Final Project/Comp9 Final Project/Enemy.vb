@@ -47,11 +47,9 @@
             Return _rank
         End Get
         Set(value As String)
-            If value > 0 Then
-                _rank = value
-            Else
-                _rank = 0
-            End If
+            'work on this if keep
+            _rank = value
+
         End Set
     End Property
 

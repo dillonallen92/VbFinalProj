@@ -133,45 +133,36 @@ Public Class Form1
         Dim picBullets(4) As Bullet
         For i As Integer = 0 To 4
             picBullets(i) = New Bullet
+            picBullets(i).Trajectory = "9"
         Next
-        
+
         For x As Integer = 0 To Bullets.Length - 1
             'Bullets(x).Left += 10
-            picBullets(x).Trajectory = "9"
+
             picBullets(x).Position = Bullets(x).Location
             picBullets(x).Direction()
             Bullets(x).Location = picBullets(x).Position
         Next
-        'If bulletCol(picEn) Then
-        'picEn.SetBounds(888, 237, 0, 0) 'changes location
-        'prbEnHp.Value -= 10
-        'If prbEnHp.Value = 0 Then
-        'tmrBullet.Enabled = False
-        'tmrEnBullet.Enabled = False
-        'GameOver()
-        'End If
-        'End If
-
     End Sub
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         Dim enArray() As PictureBox = {picEn, picEn2, picEn3, picEn4, picEn5}
+        Dim enemies(4) As Enemy
+        For i As Integer = 0 To 4
+            enemies(i) = New Enemy
+        Next
         Dim en As PictureBox
-        Dim Loc As Point
+        'Dim Loc As Point
         'This timer is for enemy movement
 
         For x As Integer = 0 To enArray.Length - 1
             en = enArray(x)
-            en.Left -= 10
-            Dim int As Integer = rnd.Next(-20, 20)
-            Loc = New Point(en.Location.X, en.Location.Y - int)
-            enArray(x).Location = Loc
+            'en.Left -= 10
+            'Dim int As Integer = rnd.Next(-20, 20)
+            'Loc = New Point(en.Location.X, en.Location.Y - int)
+            'enArray(x).Location = Loc
 
-
-            If bulletCol(en) Then
-                en.SetBounds(888 - int * 2, 237 - int * 2, 0, 0) 'changes location
-            End If
             If en.Location.X - 5 < 0 Then
-                en.SetBounds(888 - int * 2, 237 - int * 2, 0, 0)
+                'en.SetBounds(888 - int * 2, 237 - int * 2, 0, 0)
                 If prbHealth.Value <> 0 Then
                     prbHealth.Value -= 10 'player loses health if enemy makes it to the edge
                 End If
@@ -180,7 +171,18 @@ Public Class Form1
                     Timer1.Enabled = False
                     GameOver()
                 End If
+            End If 'moved
+
+            '*****************************************************
+            enemies(x).Position = enArray(x).Location
+            enemies(x).Direction()
+            enArray(x).Location = enemies(x).Position
+            '******************************************************
+
+            If bulletCol(en) Then
+                'en.SetBounds(888 - int * 2, 237 - int * 2, 0, 0) 'changes location
             End If
+            'moved from hear
             If picPlayer.Bounds.IntersectsWith(en.Bounds) Then 'May need to be moved later
                 'picEn.SetBounds(100, Me.Width - 100, 0, 0) ' location of the enemy
                 If prbHealth.Value <> 0 Then
