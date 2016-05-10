@@ -3,13 +3,14 @@ Option Infer Off
 Option Strict On
 
 Public Class Form1
+    Dim count As Integer = 0
     Dim score As Integer = 0
     Dim game As String = ""
     Dim Bullets() As PictureBox = {p1b1, p1b2, p1b3, p1b4, p1b5}
     Dim EnBullets() As PictureBox = {p2b1, p2b2, p2b3, p2b4, p2b5}
     'Dim enArray() As PictureBox = {picEn, picEn, picEn, picEn, picEn}
     Dim rnd As New Random
-   
+
     Dim player1 As Ship = New Ship()
     Dim player2 As Ship = New Ship()
 
@@ -37,56 +38,56 @@ Public Class Form1
                 Case Keys.Up
                     If game.Equals("Multiplayer") Then
                         If Not picEn.Location.Y - 5 < 70 Then
-                            Loc = New Point(picEn.Location.X, picEn.Location.Y - player2.speed)
+                            Loc = New Point(picEn.Location.X, picEn.Location.Y - player2.Speed)
                             picEn.Location = Loc
                         End If
                     End If
 
                 Case Keys.S
                     If Not picPlayer.Location.Y - 5 < 70 Then
-                        Loc = New Point(picPlayer.Location.X, picPlayer.Location.Y - player1.speed)
+                        Loc = New Point(picPlayer.Location.X, picPlayer.Location.Y - player1.Speed)
                         picPlayer.Location = Loc
                     End If
 
                 Case Keys.Down
                     If game.Equals("Multiplayer") Then
                         If Not picEn.Location.Y - 5 > Me.Height - picEn.Height * 1.6 Then
-                            Loc = New Point(picEn.Location.X, picEn.Location.Y + player2.speed)
+                            Loc = New Point(picEn.Location.X, picEn.Location.Y + player2.Speed)
                             picEn.Location = Loc
                         End If
                     End If
 
                 Case Keys.X
                     If Not picPlayer.Location.Y - 5 > Me.Height - picPlayer.Height * 1.6 Then
-                        Loc = New Point(picPlayer.Location.X, picPlayer.Location.Y + player1.speed)
+                        Loc = New Point(picPlayer.Location.X, picPlayer.Location.Y + player1.Speed)
                         picPlayer.Location = Loc
                     End If
 
                 Case Keys.Left
                     If game.Equals("Multiplayer") Then
                         If Not picEn.Location.X - 5 < 0 Then
-                            Loc = New Point(picEn.Location.X - player2.speed, picEn.Location.Y)
+                            Loc = New Point(picEn.Location.X - player2.Speed, picEn.Location.Y)
                             picEn.Location = Loc
                         End If
                     End If
 
                 Case Keys.Z
                     If Not picPlayer.Location.X - 5 < 0 Then
-                        Loc = New Point(picPlayer.Location.X - player1.speed, picPlayer.Location.Y)
+                        Loc = New Point(picPlayer.Location.X - player1.Speed, picPlayer.Location.Y)
                         picPlayer.Location = Loc
                     End If
 
                 Case Keys.Right
                     If game.Equals("Multiplayer") Then
                         If Not picEn.Location.X - 5 > Me.Width - picEn.Width - 5 Then
-                            Loc = New Point(picEn.Location.X + player2.speed, picEn.Location.Y)
+                            Loc = New Point(picEn.Location.X + player2.Speed, picEn.Location.Y)
                             picEn.Location = Loc
                         End If
                     End If
 
                 Case Keys.C
                     If Not picPlayer.Location.X - 5 > Me.Width - picPlayer.Width - 5 Then
-                        Loc = New Point(picPlayer.Location.X + player1.speed, picPlayer.Location.Y)
+                        Loc = New Point(picPlayer.Location.X + player1.Speed, picPlayer.Location.Y)
                         picPlayer.Location = Loc
                     End If
 
@@ -146,10 +147,15 @@ Public Class Form1
     End Sub
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         Dim enArray() As PictureBox = {picEn, picEn2, picEn3, picEn4, picEn5}
-        Dim enemies(4) As Enemy
-        For i As Integer = 0 To 4
-            enemies(i) = New Enemy
-        Next
+
+        Static enemies(4) As Enemy
+        If count = 0 Then
+
+            For i As Integer = 0 To 4
+                enemies(i) = New Enemy
+            Next
+            count += 1
+        End If
         Dim en As PictureBox
         'Dim Loc As Point
         'This timer is for enemy movement
@@ -157,12 +163,14 @@ Public Class Form1
         For x As Integer = 0 To enArray.Length - 1
             en = enArray(x)
             'en.Left -= 10
-            'Dim int As Integer = rnd.Next(-20, 20)
+            Dim int As Integer = rnd.Next(-20, 20)
+            Dim tra As Integer = rnd.Next(0, 5)
             'Loc = New Point(en.Location.X, en.Location.Y - int)
             'enArray(x).Location = Loc
 
+
             If en.Location.X - 5 < 0 Then
-                'en.SetBounds(888 - int * 2, 237 - int * 2, 0, 0)
+                en.SetBounds(888 - int * 2, 237 - int * 2, 0, 0)
                 If prbHealth.Value <> 0 Then
                     prbHealth.Value -= 10 'player loses health if enemy makes it to the edge
                 End If
@@ -172,7 +180,25 @@ Public Class Form1
                     GameOver()
                 End If
             End If 'moved
+            Select Case tra
+                Case 1
+                    enemies(x).Trajectory = "1"
+                Case 2
+                    enemies(x).Trajectory = "2"
+                Case 3
+                    enemies(x).Trajectory = "4"
+                Case 4
+                    enemies(x).Trajectory = "7"
+                Case 5
+                    enemies(x).Trajectory = "8"
+            End Select
 
+            If en.Location.Y - 20 < 70 Then
+                enemies(x).Trajectory = "7"
+            End If
+            If en.Location.Y > Me.Height - 100 Then
+                enemies(x).Trajectory = "1"
+            End If
             '*****************************************************
             enemies(x).Position = enArray(x).Location
             enemies(x).Direction()
@@ -180,7 +206,7 @@ Public Class Form1
             '******************************************************
 
             If bulletCol(en) Then
-                'en.SetBounds(888 - int * 2, 237 - int * 2, 0, 0) 'changes location
+                en.SetBounds(888 - int * 2, 237 - int * 2, 0, 0) 'changes location
             End If
             'moved from hear
             If picPlayer.Bounds.IntersectsWith(en.Bounds) Then 'May need to be moved later
@@ -213,7 +239,7 @@ Public Class Form1
         game = "Normal"
         prbHealth.Value = 100
         picPlayer.SetBounds(90, 247, 0, 0)
-        'Respawn()
+        Respawn()
         Timer1.Enabled = True 'starts the timer that makes the enemy move
         picEn2.Visible = True
         picEn3.Visible = True
@@ -223,6 +249,7 @@ Public Class Form1
         Label2.Visible = False
         lblScore.Text = "0"
         score = 0
+        count = 0
     End Sub
 
     Public Sub StartMultiplayer()
