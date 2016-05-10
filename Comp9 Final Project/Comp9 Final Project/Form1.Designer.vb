@@ -148,13 +148,13 @@ Partial Class Form1
         'NormalToolStripMenuItem
         '
         Me.NormalToolStripMenuItem.Name = "NormalToolStripMenuItem"
-        Me.NormalToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.NormalToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
         Me.NormalToolStripMenuItem.Text = "Normal"
         '
         'MultiplayerToolStripMenuItem
         '
         Me.MultiplayerToolStripMenuItem.Name = "MultiplayerToolStripMenuItem"
-        Me.MultiplayerToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.MultiplayerToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
         Me.MultiplayerToolStripMenuItem.Text = "Multiplayer"
         '
         'HelpToolStripMenuItem
@@ -247,7 +247,7 @@ Partial Class Form1
         '
         'p2b5
         '
-        Me.p2b5.Location = New System.Drawing.Point(585, 338)
+        Me.p2b5.Location = New System.Drawing.Point(713, 42)
         Me.p2b5.Margin = New System.Windows.Forms.Padding(2)
         Me.p2b5.Name = "p2b5"
         Me.p2b5.Size = New System.Drawing.Size(4, 4)
@@ -257,7 +257,7 @@ Partial Class Form1
         '
         'p2b4
         '
-        Me.p2b4.Location = New System.Drawing.Point(579, 332)
+        Me.p2b4.Location = New System.Drawing.Point(683, 42)
         Me.p2b4.Margin = New System.Windows.Forms.Padding(2)
         Me.p2b4.Name = "p2b4"
         Me.p2b4.Size = New System.Drawing.Size(4, 4)
@@ -267,7 +267,7 @@ Partial Class Form1
         '
         'p2b3
         '
-        Me.p2b3.Location = New System.Drawing.Point(573, 325)
+        Me.p2b3.Location = New System.Drawing.Point(660, 42)
         Me.p2b3.Margin = New System.Windows.Forms.Padding(2)
         Me.p2b3.Name = "p2b3"
         Me.p2b3.Size = New System.Drawing.Size(4, 4)
@@ -277,7 +277,7 @@ Partial Class Form1
         '
         'p2b2
         '
-        Me.p2b2.Location = New System.Drawing.Point(567, 319)
+        Me.p2b2.Location = New System.Drawing.Point(631, 42)
         Me.p2b2.Margin = New System.Windows.Forms.Padding(2)
         Me.p2b2.Name = "p2b2"
         Me.p2b2.Size = New System.Drawing.Size(4, 4)
@@ -287,7 +287,7 @@ Partial Class Form1
         '
         'p2b1
         '
-        Me.p2b1.Location = New System.Drawing.Point(607, 80)
+        Me.p2b1.Location = New System.Drawing.Point(334, 52)
         Me.p2b1.Margin = New System.Windows.Forms.Padding(2)
         Me.p2b1.Name = "p2b1"
         Me.p2b1.Size = New System.Drawing.Size(4, 4)
@@ -297,7 +297,7 @@ Partial Class Form1
         '
         'p1b4
         '
-        Me.p1b4.Location = New System.Drawing.Point(281, 145)
+        Me.p1b4.Location = New System.Drawing.Point(184, 51)
         Me.p1b4.Margin = New System.Windows.Forms.Padding(2)
         Me.p1b4.Name = "p1b4"
         Me.p1b4.Size = New System.Drawing.Size(5, 5)
@@ -308,7 +308,7 @@ Partial Class Form1
         '
         'p1b3
         '
-        Me.p1b3.Location = New System.Drawing.Point(385, 85)
+        Me.p1b3.Location = New System.Drawing.Point(262, 51)
         Me.p1b3.Margin = New System.Windows.Forms.Padding(2)
         Me.p1b3.Name = "p1b3"
         Me.p1b3.Size = New System.Drawing.Size(5, 5)
@@ -319,7 +319,7 @@ Partial Class Form1
         '
         'p1b5
         '
-        Me.p1b5.Location = New System.Drawing.Point(459, 85)
+        Me.p1b5.Location = New System.Drawing.Point(299, 51)
         Me.p1b5.Margin = New System.Windows.Forms.Padding(2)
         Me.p1b5.Name = "p1b5"
         Me.p1b5.Size = New System.Drawing.Size(5, 5)
@@ -330,7 +330,7 @@ Partial Class Form1
         '
         'p1b2
         '
-        Me.p1b2.Location = New System.Drawing.Point(325, 117)
+        Me.p1b2.Location = New System.Drawing.Point(214, 51)
         Me.p1b2.Margin = New System.Windows.Forms.Padding(2)
         Me.p1b2.Name = "p1b2"
         Me.p1b2.Size = New System.Drawing.Size(5, 5)
@@ -341,7 +341,7 @@ Partial Class Form1
         '
         'p1b1
         '
-        Me.p1b1.Location = New System.Drawing.Point(126, 85)
+        Me.p1b1.Location = New System.Drawing.Point(520, 51)
         Me.p1b1.Margin = New System.Windows.Forms.Padding(2)
         Me.p1b1.Name = "p1b1"
         Me.p1b1.Size = New System.Drawing.Size(5, 5)
@@ -354,7 +354,7 @@ Partial Class Form1
         '
         Me.picEn.BackColor = System.Drawing.Color.Transparent
         Me.picEn.Image = Global.WindowsApplication1.My.Resources.Resources.cloudEnemy
-        Me.picEn.Location = New System.Drawing.Point(888, 339)
+        Me.picEn.Location = New System.Drawing.Point(888, 338)
         Me.picEn.Name = "picEn"
         Me.picEn.Size = New System.Drawing.Size(100, 50)
         Me.picEn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize

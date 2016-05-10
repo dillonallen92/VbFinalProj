@@ -163,7 +163,7 @@ Public Class Form1
             en = enArray(x)
             en.Left -= 10
             Dim int As Integer = rnd.Next(-20, 20)
-            Loc = New Point(en.Location.X - int, en.Location.Y - int)
+            Loc = New Point(en.Location.X, en.Location.Y - int)
             enArray(x).Location = Loc
 
 
@@ -211,7 +211,7 @@ Public Class Form1
         game = "Normal"
         prbHealth.Value = 100
         picPlayer.SetBounds(90, 247, 0, 0)
-        Respawn()
+        'Respawn()
         Timer1.Enabled = True 'starts the timer that makes the enemy move
         picEn2.Visible = True
         picEn3.Visible = True
@@ -263,6 +263,7 @@ Public Class Form1
         picEn3.SetBounds(888, 297, 0, 0)
         picEn4.SetBounds(888, 347, 0, 0)
         picEn5.SetBounds(888, 397, 0, 0)
+
     End Sub
 
     Private Function bulletCol(pic As PictureBox) As Boolean
