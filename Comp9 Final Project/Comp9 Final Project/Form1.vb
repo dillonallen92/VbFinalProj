@@ -134,7 +134,7 @@ Public Class Form1
         Dim picBullets(4) As Bullet
         For i As Integer = 0 To 4
             picBullets(i) = New Bullet
-            picBullets(i).Trajectory = "3"
+            picBullets(i).Trajectory = "9"
         Next
 
         For x As Integer = 0 To Bullets.Length - 1
@@ -164,7 +164,7 @@ Public Class Form1
             en = enArray(x)
             'en.Left -= 10
             Dim int As Integer = rnd.Next(-20, 20)
-            Dim tra As Integer = rnd.Next(0, 3)
+            Dim tra As Integer = rnd.Next(0, 5)
             'Loc = New Point(en.Location.X, en.Location.Y - int)
             'enArray(x).Location = Loc
 
@@ -184,17 +184,20 @@ Public Class Form1
                 Case 1
                     enemies(x).Trajectory = "1"
                 Case 2
-                    enemies(x).Trajectory = "7"
+                    enemies(x).Trajectory = "2"
                 Case 3
                     enemies(x).Trajectory = "4"
-
+                Case 4
+                    enemies(x).Trajectory = "7"
+                Case 5
+                    enemies(x).Trajectory = "8"
             End Select
 
             If en.Location.Y - 20 < 70 Then
-                enemies(x).Trajectory = "1"
+                enemies(x).Trajectory = "7"
             End If
             If en.Location.Y > Me.Height - 100 Then
-                enemies(x).Trajectory = "7"
+                enemies(x).Trajectory = "1"
             End If
             '*****************************************************
             enemies(x).Position = enArray(x).Location

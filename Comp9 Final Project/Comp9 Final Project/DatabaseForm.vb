@@ -29,12 +29,24 @@ Public Class DatabaseForm
         'Need to make a login form in Form1, then use the data from the textbox
         'If new player, use the addData function with default values for shields (100), power (10) player_kills(0)
 
+        'Try
+        '    Me.PlayerDatabaseDataSet.PlayerDatabase.AddPlayerDatabaseRow(counter, txtName.Text, 100, 10, 0)
+        '    Try
+        '        PlayerDatabaseTableAdapter.Update(PlayerDatabaseDataSet.products)
+        '        counter += 1
+        '    Catch ex As Exception
+        '        MessageBox.Show(ex.Message, "Add Record", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        '    End Try
+        'Catch ex As Exception
+        '    MessageBox.Show("Duplicate record", "Add Record", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        'End Try
 
 
-
-
-
-
+        Try
+            PlayerDatabaseDataSet.PlayerTable.AddPlayerTableRow(Login.txtName.Text, 100, 10, 0)
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Player Added!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End Try
 
 
         'update the idCount
