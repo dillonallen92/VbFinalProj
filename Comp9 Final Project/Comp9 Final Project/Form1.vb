@@ -157,7 +157,7 @@ Public Class Form1
         Dim enArray() As PictureBox = {picEn, picEn2, picEn3, picEn4, picEn5}
         Dim en As PictureBox
         Dim Loc As Point
-
+        'This timer is for enemy movement
 
         For x As Integer = 0 To enArray.Length - 1
             en = enArray(x)
@@ -211,11 +211,7 @@ Public Class Form1
         game = "Normal"
         prbHealth.Value = 100
         picPlayer.SetBounds(90, 247, 0, 0)
-        picEn.SetBounds(888, 247, 0, 0)
-        picEn2.SetBounds(888, 247, 0, 0)
-        picEn3.SetBounds(888, 247, 0, 0)
-        picEn4.SetBounds(888, 247, 0, 0)
-        picEn5.SetBounds(888, 247, 0, 0)
+        Respawn()
         Timer1.Enabled = True 'starts the timer that makes the enemy move
         picEn2.Visible = True
         picEn3.Visible = True
@@ -259,6 +255,14 @@ Public Class Form1
             MessageBox.Show("Game is over!" & ControlChars.NewLine & "Score: " & score)
         End If
         game = "Over"
+    End Sub
+
+    Private Sub Respawn()
+        picEn.SetBounds(888, 197, 0, 0)
+        picEn2.SetBounds(888, 247, 0, 0)
+        picEn3.SetBounds(888, 297, 0, 0)
+        picEn4.SetBounds(888, 347, 0, 0)
+        picEn5.SetBounds(888, 397, 0, 0)
     End Sub
 
     Private Function bulletCol(pic As PictureBox) As Boolean
