@@ -373,4 +373,16 @@ Public Class Form1
     Private Sub ViewToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ViewToolStripMenuItem.Click
         DatabaseForm.Visible = True
     End Sub
+
+    Private Sub LoginToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LoginToolStripMenuItem.Click
+        Login.Visible = True
+    End Sub
+
+    Private Sub InstructionsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InstructionsToolStripMenuItem.Click
+        MessageBox.Show("Use SZXC for up,left,down,right controls. Kill enemies before they hit you or hit the end", "Instructions")
+    End Sub
+
+    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
+        MessageBox.Show("Computer 009 advanced visual basic project 2 and 4.", "About")
+    End Sub
 End Class

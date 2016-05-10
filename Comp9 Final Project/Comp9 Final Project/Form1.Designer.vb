@@ -29,6 +29,7 @@ Partial Class Form1
         Me.Label1 = New System.Windows.Forms.Label()
         Me.prbHealth = New System.Windows.Forms.ProgressBar()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.LoginToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StartGameToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NormalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MultiplayerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -56,7 +57,6 @@ Partial Class Form1
         Me.p1b1 = New System.Windows.Forms.PictureBox()
         Me.picEn = New System.Windows.Forms.PictureBox()
         Me.picPlayer = New System.Windows.Forms.PictureBox()
-        Me.LoginToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.picEn5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picEn4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -139,6 +139,12 @@ Partial Class Form1
         Me.MenuStrip1.TabIndex = 25
         Me.MenuStrip1.Text = "MenuStrip1"
         '
+        'LoginToolStripMenuItem
+        '
+        Me.LoginToolStripMenuItem.Name = "LoginToolStripMenuItem"
+        Me.LoginToolStripMenuItem.Size = New System.Drawing.Size(49, 20)
+        Me.LoginToolStripMenuItem.Text = "Login"
+        '
         'StartGameToolStripMenuItem
         '
         Me.StartGameToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NormalToolStripMenuItem, Me.MultiplayerToolStripMenuItem})
@@ -149,13 +155,13 @@ Partial Class Form1
         'NormalToolStripMenuItem
         '
         Me.NormalToolStripMenuItem.Name = "NormalToolStripMenuItem"
-        Me.NormalToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.NormalToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
         Me.NormalToolStripMenuItem.Text = "Normal"
         '
         'MultiplayerToolStripMenuItem
         '
         Me.MultiplayerToolStripMenuItem.Name = "MultiplayerToolStripMenuItem"
-        Me.MultiplayerToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.MultiplayerToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
         Me.MultiplayerToolStripMenuItem.Text = "Multiplayer"
         '
         'HelpToolStripMenuItem
@@ -372,12 +378,6 @@ Partial Class Form1
         Me.picPlayer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
         Me.picPlayer.TabIndex = 23
         Me.picPlayer.TabStop = False
-        '
-        'LoginToolStripMenuItem
-        '
-        Me.LoginToolStripMenuItem.Name = "LoginToolStripMenuItem"
-        Me.LoginToolStripMenuItem.Size = New System.Drawing.Size(49, 20)
-        Me.LoginToolStripMenuItem.Text = "Login"
         '
         'Form1
         '

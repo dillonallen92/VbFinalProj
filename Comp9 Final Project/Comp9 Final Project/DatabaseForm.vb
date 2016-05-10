@@ -28,10 +28,14 @@ Public Class DatabaseForm
 
         Try
             PlayerDatabaseDataSet.PlayerTable.AddPlayerTableRow(name, 100, 10, 0)
+            Try
+                PlayerTableTableAdapter.Update(PlayerDatabaseDataSet.PlayerTable)
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, "Player Added!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End Try
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Player Added!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show("Duplicate Message", "Add Record", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End Try
-
     End Sub
 
     'Need update record function as well
