@@ -281,7 +281,8 @@ Public Class Form1
         ElseIf game.Equals("Over") Then
             MessageBox.Show("Game is over!")
         Else
-            MessageBox.Show("Game is over!" & ControlChars.NewLine & "Score: " & score)
+            'Trying to call the player name when game is over.
+            MessageBox.Show("Game is over!" & ControlChars.NewLine & DatabaseForm.getData("player_name", Login.txtName.Text).ToString & ControlChars.NewLine & "Score: " & score)
         End If
         game = "Over"
     End Sub

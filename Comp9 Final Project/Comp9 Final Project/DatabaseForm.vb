@@ -25,9 +25,10 @@ Public Class DatabaseForm
     End Function
 
     Public Sub addData(ByVal name As String)
-
+        Dim playerName As String = ""
+        playerName = name
         Try
-            PlayerDatabaseDataSet.PlayerTable.AddPlayerTableRow(name, 100, 10, 0)
+            PlayerDatabaseDataSet.PlayerTable.AddPlayerTableRow(playerName, 100, 10, 0)
             Try
                 PlayerTableTableAdapter.Update(PlayerDatabaseDataSet.PlayerTable)
             Catch ex As Exception
