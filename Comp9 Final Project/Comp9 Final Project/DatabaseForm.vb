@@ -43,7 +43,7 @@ Public Class DatabaseForm
 
 
         Try
-            PlayerDatabaseDataSet.PlayerTable.AddPlayerTableRow(Login.txtName.Text, 100, 10, 0)
+            PlayerDatabaseDataSet.PlayerTable.AddPlayerTableRow(name, 100, 10, 0)
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Player Added!", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End Try

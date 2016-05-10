@@ -56,6 +56,7 @@ Partial Class Form1
         Me.p1b1 = New System.Windows.Forms.PictureBox()
         Me.picEn = New System.Windows.Forms.PictureBox()
         Me.picPlayer = New System.Windows.Forms.PictureBox()
+        Me.LoginToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.picEn5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picEn4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -131,7 +132,7 @@ Partial Class Form1
         'MenuStrip1
         '
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StartGameToolStripMenuItem, Me.HelpToolStripMenuItem, Me.DatabaseToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LoginToolStripMenuItem, Me.StartGameToolStripMenuItem, Me.HelpToolStripMenuItem, Me.DatabaseToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(1151, 24)
@@ -148,13 +149,13 @@ Partial Class Form1
         'NormalToolStripMenuItem
         '
         Me.NormalToolStripMenuItem.Name = "NormalToolStripMenuItem"
-        Me.NormalToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
+        Me.NormalToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.NormalToolStripMenuItem.Text = "Normal"
         '
         'MultiplayerToolStripMenuItem
         '
         Me.MultiplayerToolStripMenuItem.Name = "MultiplayerToolStripMenuItem"
-        Me.MultiplayerToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
+        Me.MultiplayerToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.MultiplayerToolStripMenuItem.Text = "Multiplayer"
         '
         'HelpToolStripMenuItem
@@ -167,13 +168,13 @@ Partial Class Form1
         'InstructionsToolStripMenuItem
         '
         Me.InstructionsToolStripMenuItem.Name = "InstructionsToolStripMenuItem"
-        Me.InstructionsToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.InstructionsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.InstructionsToolStripMenuItem.Text = "Instructions"
         '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.AboutToolStripMenuItem.Text = "About"
         '
         'DatabaseToolStripMenuItem
@@ -372,6 +373,12 @@ Partial Class Form1
         Me.picPlayer.TabIndex = 23
         Me.picPlayer.TabStop = False
         '
+        'LoginToolStripMenuItem
+        '
+        Me.LoginToolStripMenuItem.Name = "LoginToolStripMenuItem"
+        Me.LoginToolStripMenuItem.Size = New System.Drawing.Size(49, 20)
+        Me.LoginToolStripMenuItem.Text = "Login"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -458,5 +465,6 @@ Partial Class Form1
     Friend WithEvents tmrEnBullet As System.Windows.Forms.Timer
     Friend WithEvents DatabaseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ViewToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents LoginToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

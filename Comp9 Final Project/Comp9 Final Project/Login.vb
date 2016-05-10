@@ -2,6 +2,7 @@
 Public Class Login
 
     Private Sub btnNew_Click(sender As Object, e As EventArgs) Handles btnNew.Click
+        Dim name As String = ""
         'Dim counter As Integer = 2
         ''Dim ID As Integer 'Must equal a new id need to check other id and make a new one
         ''****************Needs to connect to database****************
@@ -16,5 +17,12 @@ Public Class Login
         'Catch ex As Exception
         '    MessageBox.Show("Duplicate record", "Add Record", MessageBoxButtons.OK, MessageBoxIcon.Information)
         'End Try
+        txtName.Text = name
+        DatabaseForm.addData(name)
+    End Sub
+
+
+    Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
+
     End Sub
 End Class
