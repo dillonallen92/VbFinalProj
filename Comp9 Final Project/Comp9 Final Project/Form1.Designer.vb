@@ -60,6 +60,8 @@ Partial Class Form1
         Me.tmrBoss = New System.Windows.Forms.Timer(Me.components)
         Me.picBoss = New System.Windows.Forms.PictureBox()
         Me.tmrBossAttack = New System.Windows.Forms.Timer(Me.components)
+        Me.lblShield = New System.Windows.Forms.Label()
+        Me.prgShield = New System.Windows.Forms.ProgressBar()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.picEn5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picEn4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -402,6 +404,28 @@ Partial Class Form1
         '
         Me.tmrBossAttack.Interval = 1000
         '
+        'lblShield
+        '
+        Me.lblShield.AutoSize = True
+        Me.lblShield.BackColor = System.Drawing.Color.Transparent
+        Me.lblShield.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblShield.ForeColor = System.Drawing.SystemColors.Control
+        Me.lblShield.Location = New System.Drawing.Point(12, 554)
+        Me.lblShield.Name = "lblShield"
+        Me.lblShield.Size = New System.Drawing.Size(54, 18)
+        Me.lblShield.TabIndex = 48
+        Me.lblShield.Text = "Shield"
+        '
+        'prgShield
+        '
+        Me.prgShield.BackColor = System.Drawing.Color.Red
+        Me.prgShield.ForeColor = System.Drawing.Color.Aqua
+        Me.prgShield.Location = New System.Drawing.Point(14, 575)
+        Me.prgShield.Name = "prgShield"
+        Me.prgShield.Size = New System.Drawing.Size(255, 23)
+        Me.prgShield.TabIndex = 47
+        Me.prgShield.Value = 100
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -409,6 +433,8 @@ Partial Class Form1
         Me.BackgroundImage = Global.WindowsApplication1.My.Resources.Resources.space_bg
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1151, 610)
+        Me.Controls.Add(Me.lblShield)
+        Me.Controls.Add(Me.prgShield)
         Me.Controls.Add(Me.picPlayer)
         Me.Controls.Add(Me.picBoss)
         Me.Controls.Add(Me.lblScore)
@@ -494,4 +520,6 @@ Partial Class Form1
     Friend WithEvents tmrBoss As Timer
     Friend WithEvents picBoss As PictureBox
     Friend WithEvents tmrBossAttack As Timer
+    Friend WithEvents lblShield As Label
+    Friend WithEvents prgShield As ProgressBar
 End Class

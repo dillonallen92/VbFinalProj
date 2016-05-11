@@ -94,3 +94,6 @@ C:\Users\00282102\Downloads\VbFinalProj-master (2)\VbFinalProj-master\Comp9 Fina
 C:\Users\00282102\Downloads\VbFinalProj-master (1)\VbFinalProj-master\Comp9 Final Project\Comp9 Final Project\bin\Debug\DatabaseForm.resx
 C:\Users\00282102\Downloads\VbFinalProj-master (1)\VbFinalProj-master\Comp9 Final Project\Comp9 Final Project\bin\Debug\DatabaseForm.Designer.vb
 C:\Users\00282102\Downloads\VbFinalProj-master (1)\VbFinalProj-master\Comp9 Final Project\Comp9 Final Project\bin\Debug\DatabaseForm.vb
+C:\Users\Owner\Documents\GitHub\VbFinalProj\Comp9 Final Project\Comp9 Final Project\bin\Debug\DatabaseForm.resx
+C:\Users\Owner\Documents\GitHub\VbFinalProj\Comp9 Final Project\Comp9 Final Project\bin\Debug\DatabaseForm.Designer.vb
+C:\Users\Owner\Documents\GitHub\VbFinalProj\Comp9 Final Project\Comp9 Final Project\bin\Debug\DatabaseForm.vb

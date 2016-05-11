@@ -2,94 +2,114 @@
 <doc>
 <assembly>
 <name>
-Comp9FinalProject
+Comp9 Final Project
 </name>
 </assembly>
 <members>
-<member name="T:WindowsApplication1.PlayerDatabaseDataSet.PlayerTableDataTable">
-	<summary>
-Represents the strongly named DataTable class.
+<member name="T:WindowsApplication1.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
 </summary>
-</member><member name="T:WindowsApplication1.PlayerDatabaseDataSet.PlayerTableRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:WindowsApplication1.PlayerDatabaseDataSet.PlayerTableRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:WindowsApplication1.PlayerDatabaseDataSet">
-	<summary>
-Represents a strongly typed in-memory cache of data.
-</summary>
-</member><member name="T:WindowsApplication1.PlayerDatabaseDataSetTableAdapters.PlayerTableTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="M:WindowsApplication1.PlayerDatabaseDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(WindowsApplication1.PlayerDatabaseDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
-	<summary>
-Update rows in top-down order.
-</summary>
-</member><member name="M:WindowsApplication1.PlayerDatabaseDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(WindowsApplication1.PlayerDatabaseDataSet,System.Collections.Generic.List{System.Data.DataRow})">
-	<summary>
-Insert rows in top-down order.
-</summary>
-</member><member name="M:WindowsApplication1.PlayerDatabaseDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(WindowsApplication1.PlayerDatabaseDataSet,System.Collections.Generic.List{System.Data.DataRow})">
-	<summary>
-Delete rows in bottom-up order.
-</summary>
-</member><member name="M:WindowsApplication1.PlayerDatabaseDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
-	<summary>
-Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
-</summary>
-</member><member name="M:WindowsApplication1.PlayerDatabaseDataSetTableAdapters.TableAdapterManager.UpdateAll(WindowsApplication1.PlayerDatabaseDataSet)">
-	<summary>
-Update all changes to the dataset.
-</summary>
-</member><member name="T:WindowsApplication1.PlayerDatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
-	<summary>
-Update Order Option
-</summary>
-</member><member name="T:WindowsApplication1.PlayerDatabaseDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
-	<summary>
-Used to sort self-referenced table's rows
-</summary>
-</member><member name="T:WindowsApplication1.PlayerDatabaseDataSetTableAdapters.TableAdapterManager">
-	<summary>
-TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
-</summary>
-</member><member name="P:WindowsApplication1.My.Resources.Resources.ResourceManager">
-	<summary>
+</member>
+<member name="P:WindowsApplication1.My.Resources.Resources.ResourceManager">
+<summary>
   Returns the cached ResourceManager instance used by this class.
 </summary>
-</member><member name="P:WindowsApplication1.My.Resources.Resources.Culture">
-	<summary>
+</member>
+<member name="P:WindowsApplication1.My.Resources.Resources.Culture">
+<summary>
   Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 </summary>
-</member><member name="P:WindowsApplication1.My.Resources.Resources.bl_ship">
-	<summary>
+</member>
+<member name="P:WindowsApplication1.My.Resources.Resources.bl_ship">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:WindowsApplication1.My.Resources.Resources.boss">
-	<summary>
+</member>
+<member name="P:WindowsApplication1.My.Resources.Resources.boss">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:WindowsApplication1.My.Resources.Resources.Cloud">
-	<summary>
+</member>
+<member name="P:WindowsApplication1.My.Resources.Resources.Cloud">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:WindowsApplication1.My.Resources.Resources.cloudEnemy">
-	<summary>
+</member>
+<member name="P:WindowsApplication1.My.Resources.Resources.cloudEnemy">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:WindowsApplication1.My.Resources.Resources.space_bg">
-	<summary>
+</member>
+<member name="P:WindowsApplication1.My.Resources.Resources.space_bg">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="T:WindowsApplication1.My.Resources.Resources">
-	<summary>
-  A strongly-typed resource class, for looking up localized strings, etc.
+</member>
+<member name="T:WindowsApplication1.PlayerDatabaseDataSet">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:WindowsApplication1.PlayerDatabaseDataSet.PlayerTableDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:WindowsApplication1.PlayerDatabaseDataSet.PlayerTableRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:WindowsApplication1.PlayerDatabaseDataSet.PlayerTableRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:WindowsApplication1.PlayerDatabaseDataSetTableAdapters.PlayerTableTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:WindowsApplication1.PlayerDatabaseDataSetTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:WindowsApplication1.PlayerDatabaseDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(WindowsApplication1.PlayerDatabaseDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:WindowsApplication1.PlayerDatabaseDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(WindowsApplication1.PlayerDatabaseDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:WindowsApplication1.PlayerDatabaseDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(WindowsApplication1.PlayerDatabaseDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:WindowsApplication1.PlayerDatabaseDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:WindowsApplication1.PlayerDatabaseDataSetTableAdapters.TableAdapterManager.UpdateAll(WindowsApplication1.PlayerDatabaseDataSet)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:WindowsApplication1.PlayerDatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:WindowsApplication1.PlayerDatabaseDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
 </summary>
 </member>
 </members>
