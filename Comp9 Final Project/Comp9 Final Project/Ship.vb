@@ -10,7 +10,12 @@
         End Get
         Set(value As Integer)
             If value > 0 Then
-                _health = value
+                If Health > 100 Then
+                    _health = 100
+                Else
+                    _health = value
+                End If
+
             Else
                 _health = 0
             End If

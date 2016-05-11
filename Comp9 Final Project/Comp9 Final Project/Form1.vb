@@ -247,10 +247,10 @@ Public Class Form1
             End Select
 
             If en.Location.Y - 20 < 70 Then
-                enemies(x).Trajectory = "7"
+                enemies(x).Trajectory = "1"
             End If
             If en.Location.Y > Me.Height - 100 Then
-                enemies(x).Trajectory = "1"
+                enemies(x).Trajectory = "7"
             End If
             '*****************************************************
             enemies(x).Position = enArray(x).Location
