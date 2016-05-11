@@ -2,6 +2,7 @@
     Private _health As Integer
     Private _damage As Integer
     Private _speed As Integer
+    Private _rank As String
     Private _position As Point
     Private _trajectory As String
 
@@ -39,6 +40,16 @@
             Else
                 _speed = 0
             End If
+        End Set
+    End Property
+    Property Rank As String
+        Get
+            Return _rank
+        End Get
+        Set(value As String)
+            'work on this if keep
+            _rank = value
+
         End Set
     End Property
 
@@ -99,13 +110,16 @@
     End Sub
 
     Public Sub New()
+        Rank = "pawn"
         Damage = 10
+        'Damage = 10 + CInt(DatabaseForm.getData("player_kills", "Dillon Allen"))
         Health = 100
         Speed = 20
         Trajectory = "left"
         Position = New Point(0, 0)
     End Sub
-    Public Sub New(ByVal intDamage, ByVal intHealth, ByVal intSpeed, ByVal strTrajectory, ByVal ptPosition)
+    Public Sub New(ByVal strRank, ByVal intDamage, ByVal intHealth, ByVal intSpeed, ByVal strTrajectory, ByVal ptPosition)
+        Rank = strRank
         Damage = intDamage
         Health = intHealth
         Speed = intSpeed

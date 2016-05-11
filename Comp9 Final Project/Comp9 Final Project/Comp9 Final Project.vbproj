@@ -73,9 +73,11 @@
     <Compile Include="Bullet.vb" />
     <Compile Include="DatabaseForm.Designer.vb">
       <DependentUpon>DatabaseForm.vb</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DatabaseForm.vb">
       <SubType>Form</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Enemy.vb" />
     <Compile Include="Form1.vb">
@@ -116,6 +118,7 @@
   <ItemGroup>
     <EmbeddedResource Include="DatabaseForm.resx">
       <DependentUpon>DatabaseForm.vb</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
@@ -163,7 +166,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PlayerDatabase.accdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\boss.gif" />
   </ItemGroup>

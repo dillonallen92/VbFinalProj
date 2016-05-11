@@ -2,7 +2,7 @@
     Private _health As Integer
     Private _damage As Integer
     Private _speed As Integer
-    Private _shield As Integer
+    Private _currency As Integer
 
     Property Health As Integer
         Get
@@ -40,30 +40,26 @@
             End If
         End Set
     End Property
-    Property Shield As Integer
+    Property Currency As Integer
         Get
-            Return _shield
+            Return _currency
         End Get
         Set(value As Integer)
             If value > 0 Then
-                If value > 100 Then
-                    _shield = 100
-                Else
-                    _shield = value
-                End If
+                _currency = value
             Else
-                    _shield = 0
+                _currency = 0
             End If
         End Set
     End Property
     Public Sub New()
-        _shield = 100
+        _currency = 0
         _damage = 10
         _health = 100
         _speed = 20
     End Sub
-    Public Sub New(ByVal intShield, ByVal intDamage, ByVal intHealth, ByVal intSpeed)
-        Shield = intShield
+    Public Sub New(ByVal intCurrency, ByVal intDamage, ByVal intHealth, ByVal intSpeed)
+        Currency = intCurrency
         Damage = intDamage
         Health = intHealth
         Speed = intSpeed

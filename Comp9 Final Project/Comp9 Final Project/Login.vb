@@ -20,11 +20,13 @@ Public Class Login
 
         DatabaseForm.addData(name)
         Form1.game = ""
+        Close()
     End Sub
 
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
         Form1.game = ""
+        Dim name As String = txtName.Text
         Close()
     End Sub
 
