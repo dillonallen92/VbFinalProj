@@ -5,7 +5,7 @@ Option Strict On
 Public Class Form1
     Dim count As Integer = 0
     Dim score As Integer = 0
-    Dim game As String = ""
+    Public game As String = ""
     Dim Bullets() As PictureBox = {p1b1, p1b2, p1b3, p1b4, p1b5}
     Dim EnBullets() As PictureBox = {p2b1, p2b2, p2b3, p2b4, p2b5}
     'Dim enArray() As PictureBox = {picEn, picEn, picEn, picEn, picEn}
@@ -15,6 +15,7 @@ Public Class Form1
     Dim player2 As Ship = New Ship()
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        game = "login"
         'testing
     End Sub
 
@@ -134,7 +135,7 @@ Public Class Form1
         Dim picBullets(4) As Bullet
         For i As Integer = 0 To 4
             picBullets(i) = New Bullet
-            picBullets(i).Trajectory = "9"
+            picBullets(i).Trajectory = "3"
         Next
 
         For x As Integer = 0 To Bullets.Length - 1
@@ -210,7 +211,7 @@ Public Class Form1
             End If
             'moved from hear
             If picPlayer.Bounds.IntersectsWith(en.Bounds) Then 'May need to be moved later
-                'picEn.SetBounds(100, Me.Width - 100, 0, 0) ' location of the enemy
+                en.SetBounds(100, Me.Width - 100, 0, 0) ' location of the enemy
                 If prbHealth.Value <> 0 Then
                     prbHealth.Value -= 10
                 End If
@@ -220,6 +221,7 @@ Public Class Form1
                     'game = "Over"
                     'MessageBox.Show("Game Over")
                     GameOver()
+                    Exit For
                 End If
             End If
         Next
@@ -228,7 +230,12 @@ Public Class Form1
     End Sub
 
     Private Sub NormalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NormalToolStripMenuItem.Click
-        StartGame()
+        If game = "login" Then
+            MessageBox.Show("Please Login First")
+        Else
+            StartGame()
+        End If
+
     End Sub
 
     Private Sub MultiplayerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MultiplayerToolStripMenuItem.Click

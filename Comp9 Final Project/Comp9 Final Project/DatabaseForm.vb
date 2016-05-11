@@ -1,7 +1,7 @@
 ﻿'Imports System.Data.OleDb
 Public Class DatabaseForm
 
-    Dim idCount As Integer = 1
+    Dim idCount As Integer = 1 '**********This needs to be changed**************
 
     Private Sub DatabaseForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'PlayerDatabaseDataSet.PlayerTable' table. You can move, or remove it, as needed.

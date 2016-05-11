@@ -73,13 +73,13 @@
         ElseIf _trajectory = "right" OrElse _trajectory = "6" Then
             Position = New Point(Position.X + _speed, Position.Y)
         ElseIf _trajectory = "upleft" OrElse _trajectory = "7" Then
-            Position = New Point(Position.X - (0.8660254 * _speed), Position.Y + _speed * 0.5)
-        ElseIf _trajectory = "upright" OrElse _trajectory = "9" Then
-            Position = New Point(Position.X + (0.8660254 * _speed), Position.Y + _speed * 0.5)
-        ElseIf _trajectory = "downleft" OrElse _trajectory = "1" Then
             Position = New Point(Position.X - (0.8660254 * _speed), Position.Y - _speed * 0.5)
-        ElseIf _trajectory = "downright" OrElse _trajectory = "3" Then
+        ElseIf _trajectory = "upright" OrElse _trajectory = "9" Then
             Position = New Point(Position.X + (0.8660254 * _speed), Position.Y - _speed * 0.5)
+        ElseIf _trajectory = "downleft" OrElse _trajectory = "1" Then
+            Position = New Point(Position.X - (0.8660254 * _speed), Position.Y + _speed * 0.5)
+        ElseIf _trajectory = "downright" OrElse _trajectory = "3" Then
+            Position = New Point(Position.X + (0.8660254 * _speed), Position.Y + _speed * 0.5)
         Else
             Position = New Point(Position.X, Position.Y + _speed)
         End If

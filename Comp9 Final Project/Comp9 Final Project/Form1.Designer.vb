@@ -174,13 +174,13 @@ Partial Class Form1
         'InstructionsToolStripMenuItem
         '
         Me.InstructionsToolStripMenuItem.Name = "InstructionsToolStripMenuItem"
-        Me.InstructionsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.InstructionsToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.InstructionsToolStripMenuItem.Text = "Instructions"
         '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.AboutToolStripMenuItem.Text = "About"
         '
         'DatabaseToolStripMenuItem
@@ -409,7 +409,7 @@ Partial Class Form1
         Me.Controls.Add(Me.picPlayer)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Name = "Form1"
-        Me.Text = "Cloud"
+        Me.Text = " "
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         CType(Me.picEn5, System.ComponentModel.ISupportInitialize).EndInit()
