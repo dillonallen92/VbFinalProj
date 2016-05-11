@@ -4,11 +4,17 @@ Option Strict On
 
 Public Class Form1
     Dim count As Integer = 0
+    Dim count2 As Integer = 0
+    Dim intCount As Integer = 0
+    Dim intCount2 As Integer = 0
+    Dim intCount3 As Integer = 0
     Dim score As Integer = 0
     Public game As String = ""
+    Dim trajec As Integer = 0
+    Dim boss As Boolean = False
     Dim Bullets() As PictureBox = {p1b1, p1b2, p1b3, p1b4, p1b5}
     Dim EnBullets() As PictureBox = {p2b1, p2b2, p2b3, p2b4, p2b5}
-    'Dim enArray() As PictureBox = {picEn, picEn, picEn, picEn, picEn}
+
     Dim rnd As New Random
 
     Dim player1 As Ship = New Ship()
@@ -21,11 +27,12 @@ Public Class Form1
 
     Private Sub Form1_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         Dim Loc As Point
+        Dim bLoc As Point
+        Dim b2loc As Point
         Dim Bullets() As PictureBox = {p1b1, p1b2, p1b3, p1b4, p1b5}
         Dim EnBullets() As PictureBox = {p2b1, p2b2, p2b3, p2b4, p2b5}
 
-        Static intCount As Integer = 0
-        Static intCount2 As Integer = 0
+
         If game = "Over" Then
             intCount = 0
             intCount2 = 0
@@ -94,7 +101,8 @@ Public Class Form1
 
                 Case Keys.Space 'bullet for player one
                     If game.Equals("Over") = False Then
-                        Bullets(intCount).Location = picPlayer.Location
+                        bLoc = New Point(picPlayer.Location.X + 100, picPlayer.Location.Y + 25)
+                        Bullets(intCount).Location = bLoc
 
                         tmrBullet.Enabled = True
 
@@ -104,10 +112,12 @@ Public Class Form1
                             intCount = 0
                         End If
                     End If
-                Case Keys.D0
+                Case Keys.D0 Or Keys.NumPad0
                     If game.Equals("Multiplayer") Then
                         If game.Equals("Over") = False Then
-                            EnBullets(intCount2).Location = picEn.Location
+
+                            b2loc = New Point(picEn.Location.X, picEn.Location.Y + 25)
+                            EnBullets(intCount2).Location = b2loc
                             tmrEnBullet.Enabled = True
                             EnBullets(intCount2).Visible = True
                             intCount2 += 1
@@ -115,6 +125,19 @@ Public Class Form1
                                 intCount2 = 0
                             End If
                         End If
+                    End If
+
+                Case Keys.Oemcomma
+                    If trajec = 1 Then
+
+                    Else
+                        trajec += 1
+                    End If
+                Case Keys.OemPeriod
+                    If trajec = -1 Then
+
+                    Else
+                        trajec -= 1
                     End If
             End Select
         End If
@@ -132,14 +155,31 @@ Public Class Form1
     Private Sub tmrBullet_Tick(sender As Object, e As EventArgs) Handles tmrBullet.Tick
         'player 1 bullet timer
         Dim Bullets() As PictureBox = {p1b1, p1b2, p1b3, p1b4, p1b5}
-        Dim picBullets(4) As Bullet
-        For i As Integer = 0 To 4
-            picBullets(i) = New Bullet
-            picBullets(i).Trajectory = "3"
-        Next
+        Static picBullets(4) As Bullet
+        Dim d As String = "6"
+        If count2 = 0 Then
+
+            For i As Integer = 0 To 4
+                picBullets(i) = New Bullet
+
+            Next
+            count2 += 1
+        End If
+
+        Select Case trajec
+            Case 1
+                d = "9"
+            Case 0
+                d = "6"
+            Case -1
+                d = "3"
+
+        End Select
+
+        picBullets(intCount).Trajectory = d
 
         For x As Integer = 0 To Bullets.Length - 1
-            'Bullets(x).Left += 10
+
 
             picBullets(x).Position = Bullets(x).Location
             picBullets(x).Direction()
@@ -207,10 +247,23 @@ Public Class Form1
             '******************************************************
 
             If bulletCol(en) Then
-                en.SetBounds(888 - int * 2, 237 - int * 2, 0, 0) 'changes location
-            End If
-            'moved from hear
-            If picPlayer.Bounds.IntersectsWith(en.Bounds) Then 'May need to be moved later
+                If game = "Normal" Then
+                    intCount3 += 1
+                    If intCount3 Mod 20 = 0 Then
+                        boss = True
+                        Boss_start()
+                    End If
+                End If
+                If boss Then
+                        en.SetBounds(Me.Height + 200, Me.Width + 200, 0, 0)
+
+                    Else
+                        en.SetBounds(888 - int * 2, 237 - int * 2, 0, 0) 'changes location
+                    End If
+
+                End If
+                'moved from hear
+                If picPlayer.Bounds.IntersectsWith(en.Bounds) Then 'May need to be moved later
                 en.SetBounds(100, Me.Width - 100, 0, 0) ' location of the enemy
                 If prbHealth.Value <> 0 Then
                     prbHealth.Value -= 10
@@ -257,6 +310,10 @@ Public Class Form1
         lblScore.Text = "0"
         score = 0
         count = 0
+        count2 = 0
+        intCount = 0
+        intCount3 = 0
+
     End Sub
 
     Public Sub StartMultiplayer()
@@ -272,6 +329,8 @@ Public Class Form1
         picPlayer.SetBounds(90, 247, 0, 0)
         picEn.SetBounds(888, 247, 0, 0)
         lblScore.Visible = False
+        intCount = 0
+        intCount2 = 0
     End Sub
 
     Public Sub GameOver()
@@ -300,33 +359,37 @@ Public Class Form1
         picEn3.SetBounds(888, 297, 0, 0)
         picEn4.SetBounds(888, 347, 0, 0)
         picEn5.SetBounds(888, 397, 0, 0)
-
+        picEn.Visible = True
+        picEn2.Visible = True
+        picEn3.Visible = True
+        picEn4.Visible = True
+        picEn5.Visible = True
     End Sub
 
     Private Function bulletCol(pic As PictureBox) As Boolean
 
         If p1b1.Bounds.IntersectsWith(pic.Bounds) Then
-            p1b1.SetBounds(100, Me.Width - 100, 5, 5)
+            p1b1.SetBounds(-100, Me.Width - 100, 5, 5)
             score += 1
             lblScore.Text = score.ToString
             Return True
         ElseIf p1b2.Bounds.IntersectsWith(pic.Bounds) Then
-            p1b2.SetBounds(100, Me.Width - 100, 5, 5)
+            p1b2.SetBounds(-100, Me.Width - 100, 5, 5)
             score += 1
             lblScore.Text = score.ToString
             Return True
         ElseIf p1b3.Bounds.IntersectsWith(pic.Bounds) Then
-            p1b3.SetBounds(100, Me.Width - 100, 5, 5)
+            p1b3.SetBounds(-100, Me.Width - 100, 5, 5)
             score += 1
             lblScore.Text = score.ToString
             Return True
         ElseIf p1b4.Bounds.IntersectsWith(pic.Bounds) Then
-            p1b4.SetBounds(100, Me.Width - 100, 5, 5)
+            p1b4.SetBounds(-100, Me.Width - 100, 5, 5)
             score += 1
             lblScore.Text = score.ToString
             Return True
         ElseIf p1b5.Bounds.IntersectsWith(pic.Bounds) Then
-            p1b5.SetBounds(100, Me.Width - 100, 5, 5)
+            p1b5.SetBounds(-100, Me.Width - 100, 5, 5)
             score += 1
             lblScore.Text = score.ToString
             Return True
@@ -356,17 +419,78 @@ Public Class Form1
         Else
             Return False
         End If
+    End Function
 
-
+    Private Function Bullet_Collision(bullets() As PictureBox, target As PictureBox) As Boolean
+        For i As Integer = 0 To bullets.Length - 1
+            If bullets(i).Bounds.IntersectsWith(target.Bounds) Then
+                bullets(i).SetBounds(-100, -100, 5, 5)
+                Return True
+            End If
+        Next
+        Return False
     End Function
 
     Private Sub tmrEnBullet_Tick(sender As Object, e As EventArgs) Handles tmrEnBullet.Tick
-        Dim EnBullets() As PictureBox = {p2b1, p2b2, p2b3, p2b4, p2b5}
+        'If Not boss Then
+        '    Dim EnBullets() As PictureBox = {p2b1, p2b2, p2b3, p2b4, p2b5}
+        'Else
+        '    Dim EnBullets() As PictureBox = {picEn, picEn2, picEn3, picEn4, picEn5}
+        'End If
+        'Static picBullets(4) As Bullet
+        'For i As Integer = 0 To 4
+        '    picBullets(i) = New Bullet
+        '    picBullets(i).Trajectory = "4"
+        'Next
 
-        For x As Integer = 0 To EnBullets.Length - 1
-            EnBullets(x).Left -= 10
+        'For x As Integer = 0 To intCount2
+        '    'Bullets(x).Left += 10
+
+        '    picBullets(x).Position = EnBullets(x).Location
+        '    picBullets(x).Direction()
+        '    EnBullets(x).Location = picBullets(x).Position
+        'Next
+        'If boss Then
+        '    If Bullet_Collision(EnBullets, picPlayer) Then
+        '        prbHealth.Value -= 10
+        '        If prbHealth.Value = 0 Then
+        '            tmrEnBullet.Enabled = False
+        '            tmrBullet.Enabled = False
+        '            GameOver()
+        '        End If
+        '    End If
+        'Else
+        '    If EnBulletCol(picPlayer) Then
+        '        prbHealth.Value -= 10
+        '        If prbHealth.Value = 0 Then
+        '            tmrEnBullet.Enabled = False
+        '            tmrBullet.Enabled = False
+        '            GameOver()
+        '        End If
+        '    End If
+        'End If
+
+        Dim Bullets() As PictureBox = {picEn, picEn2, picEn3, picEn4, picEn5}
+        Static picBullets(4) As Bullet
+        Static count As Integer = 0
+        Dim d As String = "4"
+        If count = 0 Then
+
+            For i As Integer = 0 To 4
+                picBullets(i) = New Bullet
+
+            Next
+            count2 += 1
+        End If
+
+        For x As Integer = 0 To Bullets.Length - 1
+            picBullets(x).Trajectory = d
+
+            picBullets(x).Position = Bullets(x).Location
+            picBullets(x).Direction()
+            Bullets(x).Location = picBullets(x).Position
         Next
-        If EnBulletCol(picPlayer) Then
+        If Bullet_Collision(Bullets, picPlayer) Then
             prbHealth.Value -= 10
             If prbHealth.Value = 0 Then
                 tmrEnBullet.Enabled = False
@@ -374,7 +498,6 @@ Public Class Form1
                 GameOver()
             End If
         End If
-
     End Sub
 
 
@@ -392,5 +515,67 @@ Public Class Form1
 
     Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
         MessageBox.Show("Computer 009 advanced visual basic project 2 and 4.", "About")
+    End Sub
+
+    Private Sub tmrBoss_Tick(sender As Object, e As EventArgs) Handles tmrBoss.Tick
+        Static k As Integer = 0
+        Static king As New Enemy("king", (intCount3 \ 20) * 10, (intCount3 \ 20) * 100, 20 + score Mod 20, "none", picBoss.Location)
+        Label2.Text = "Health: " & king.Health
+        If bulletCol(picBoss) Then
+            king.Health -= player1.Damage
+        End If
+        king.Position = picBoss.Location
+        tmrBossAttack.Enabled = True
+        If king.Health = 0 Then
+            Boss_end()
+        End If
+    End Sub
+
+    Private Sub Boss_start()
+        Timer1.Enabled = False
+        tmrEnBullet.Enabled = True
+        tmrBoss.Enabled = True
+        picBoss.Visible = True
+        Label2.Visible = True
+        picEn.Visible = False
+        picEn2.Visible = False
+        picEn3.Visible = False
+        picEn4.Visible = False
+        picEn5.Visible = False
+    End Sub
+
+    Private Sub Boss_end()
+        Timer1.Enabled = True
+        tmrBoss.Enabled = False
+        tmrEnBullet.Enabled = False
+        picBoss.Visible = False
+        Label2.Visible = False
+        prbEnHp.Visible = False
+        Label2.Text = "Health"
+        tmrBossAttack.Enabled = False
+        intCount2 = 0
+        Respawn()
+    End Sub
+
+    Private Sub tmrBossAttack_Tick(sender As Object, e As EventArgs) Handles tmrBossAttack.Tick
+        Dim num As Integer = rnd.Next(0, 50)
+        Dim EnBullets() As PictureBox = {picEn, picEn2, picEn3, picEn4, picEn5}
+        Dim bLoc As Point
+        Select Case num
+            Case 0 To 50
+                If game.Equals("Over") = False Then
+
+                    bLoc = New Point(picBoss.Location.X, picBoss.Location.Y + 150)
+                    EnBullets(intCount2).Location = bLoc
+
+
+                    tmrEnBullet.Enabled = True
+                    EnBullets(intCount2).Visible = True
+                    intCount2 += 1
+                    If intCount2 = 5 Then
+                        intCount2 = 0
+                    End If
+                End If
+        End Select
     End Sub
 End Class

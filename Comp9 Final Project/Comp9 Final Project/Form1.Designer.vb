@@ -57,6 +57,9 @@ Partial Class Form1
         Me.p1b1 = New System.Windows.Forms.PictureBox()
         Me.picEn = New System.Windows.Forms.PictureBox()
         Me.picPlayer = New System.Windows.Forms.PictureBox()
+        Me.tmrBoss = New System.Windows.Forms.Timer(Me.components)
+        Me.picBoss = New System.Windows.Forms.PictureBox()
+        Me.tmrBossAttack = New System.Windows.Forms.Timer(Me.components)
         Me.MenuStrip1.SuspendLayout()
         CType(Me.picEn5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picEn4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -74,6 +77,7 @@ Partial Class Form1
         CType(Me.p1b1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picEn, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picPlayer, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picBoss, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lblScore
@@ -379,6 +383,25 @@ Partial Class Form1
         Me.picPlayer.TabIndex = 23
         Me.picPlayer.TabStop = False
         '
+        'tmrBoss
+        '
+        '
+        'picBoss
+        '
+        Me.picBoss.BackColor = System.Drawing.Color.Transparent
+        Me.picBoss.Image = Global.WindowsApplication1.My.Resources.Resources.boss
+        Me.picBoss.Location = New System.Drawing.Point(792, 154)
+        Me.picBoss.Name = "picBoss"
+        Me.picBoss.Size = New System.Drawing.Size(300, 300)
+        Me.picBoss.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.picBoss.TabIndex = 44
+        Me.picBoss.TabStop = False
+        Me.picBoss.Visible = False
+        '
+        'tmrBossAttack
+        '
+        Me.tmrBossAttack.Interval = 1000
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -386,6 +409,8 @@ Partial Class Form1
         Me.BackgroundImage = Global.WindowsApplication1.My.Resources.Resources.space_bg
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1151, 610)
+        Me.Controls.Add(Me.picPlayer)
+        Me.Controls.Add(Me.picBoss)
         Me.Controls.Add(Me.lblScore)
         Me.Controls.Add(Me.picEn5)
         Me.Controls.Add(Me.picEn4)
@@ -406,7 +431,6 @@ Partial Class Form1
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.prbHealth)
         Me.Controls.Add(Me.picEn)
-        Me.Controls.Add(Me.picPlayer)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Name = "Form1"
         Me.Text = " "
@@ -428,6 +452,7 @@ Partial Class Form1
         CType(Me.p1b1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picEn, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picPlayer, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picBoss, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -466,5 +491,7 @@ Partial Class Form1
     Friend WithEvents DatabaseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ViewToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LoginToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-
+    Friend WithEvents tmrBoss As Timer
+    Friend WithEvents picBoss As PictureBox
+    Friend WithEvents tmrBossAttack As Timer
 End Class

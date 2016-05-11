@@ -27,6 +27,11 @@ Comp9 Final Project
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:WindowsApplication1.My.Resources.Resources.boss">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:WindowsApplication1.My.Resources.Resources.Cloud">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.

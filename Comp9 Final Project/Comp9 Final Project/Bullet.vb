@@ -50,7 +50,6 @@
         Set(value As String)
 
             If value.ToLower = "left" OrElse value.ToLower = "4" Then
-            ElseIf value.ToLower = "left" OrElse value.ToLower = "4" Then
                 _trajectory = value
             ElseIf value.ToLower = "right" OrElse value.ToLower = "6" Then
                 _trajectory = value

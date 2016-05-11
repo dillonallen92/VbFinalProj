@@ -1,6 +1,6 @@
 ﻿Public Class Enemy
     Private _health As Integer
-    Private _damage As Double
+    Private _damage As Integer
     Private _speed As Integer
     Private _rank As String
     Private _position As Point
@@ -18,11 +18,11 @@
             End If
         End Set
     End Property
-    Property Damage As Double
+    Property Damage As Integer
         Get
             Return _damage
         End Get
-        Set(value As Double)
+        Set(value As Integer)
             If value > 0 Then
                 _damage = value
             Else
@@ -86,7 +86,7 @@
             ElseIf value.ToLower = "downright" OrElse value.ToLower = "3" Then
                 _trajectory = value
             Else
-                _trajectory = "left"
+                _trajectory = "none"
             End If
         End Set
     End Property
@@ -104,7 +104,7 @@
         ElseIf _trajectory = "downright" OrElse _trajectory = "3" Then
             Position = New Point(Position.X + (0.8660254 * _speed), Position.Y + _speed * 0.5)
         Else
-            Position = New Point(Position.X, Position.Y + _speed)
+            Position = New Point(Position.X, Position.Y)
         End If
 
     End Sub
@@ -117,9 +117,9 @@
         Trajectory = "left"
         Position = New Point(0, 0)
     End Sub
-    Public Sub New(ByVal strRank, ByVal dblDamage, ByVal intHealth, ByVal intSpeed, ByVal strTrajectory, ByVal ptPosition)
+    Public Sub New(ByVal strRank, ByVal intDamage, ByVal intHealth, ByVal intSpeed, ByVal strTrajectory, ByVal ptPosition)
         Rank = strRank
-        Damage = dblDamage
+        Damage = intDamage
         Health = intHealth
         Speed = intSpeed
         Trajectory = strTrajectory

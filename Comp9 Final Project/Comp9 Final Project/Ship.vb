@@ -1,6 +1,6 @@
 ﻿Public Class Ship
     Private _health As Integer
-    Private _damage As Double
+    Private _damage As Integer
     Private _speed As Integer
     Private _currency As Integer
 
@@ -16,11 +16,11 @@
             End If
         End Set
     End Property
-    Property Damage As Double
+    Property Damage As Integer
         Get
             Return _damage
         End Get
-        Set(value As Double)
+        Set(value As Integer)
             If value > 0 Then
                 _damage = value
             Else
@@ -58,9 +58,9 @@
         _health = 100
         _speed = 20
     End Sub
-    Public Sub New(ByVal intCurrency, ByVal dblDamage, ByVal intHealth, ByVal intSpeed)
+    Public Sub New(ByVal intCurrency, ByVal intDamage, ByVal intHealth, ByVal intSpeed)
         Currency = intCurrency
-        Damage = dblDamage
+        Damage = intDamage
         Health = intHealth
         Speed = intSpeed
     End Sub
