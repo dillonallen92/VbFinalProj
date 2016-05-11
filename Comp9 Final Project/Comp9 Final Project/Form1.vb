@@ -14,7 +14,7 @@ Public Class Form1
     Dim boss As Boolean = False
     Dim Bullets() As PictureBox = {p1b1, p1b2, p1b3, p1b4, p1b5}
     Dim EnBullets() As PictureBox = {p2b1, p2b2, p2b3, p2b4, p2b5}
-
+    Dim king As New Enemy
     Dim rnd As New Random
 
     Dim player1 As Ship = New Ship()
@@ -213,9 +213,14 @@ Public Class Form1
             If en.Location.X - 5 < 0 Then
                 en.SetBounds(888 - int * 2, 237 - int * 2, 0, 0)
                 If prbHealth.Value <> 0 Then
-                    prbHealth.Value -= 10 'player loses health if enemy makes it to the edge
+                    If player1.Shield - 10 <= 0 Then
+                        prbHealth.Value -= 10 'player loses health if enemy makes it to the edge
+                    Else
+                        player1.Shield -= 10
+                        prgShield.Value = player1.Shield
+                    End If
                 End If
-                If prbHealth.Value = 0 Then
+                    If prbHealth.Value = 0 Then
                     tmrBullet.Enabled = False
                     Timer1.Enabled = False
                     GameOver()
@@ -247,32 +252,32 @@ Public Class Form1
             '******************************************************
 
             If bulletCol(en) Then
+                player1.Shield += 1
+                prgShield.Value = player1.Shield
                 If game = "Normal" Then
-                    intCount3 += 1
-                    If intCount3 Mod 20 = 0 Then
+
+                    If score Mod 20 = 0 Then
                         boss = True
                         Boss_start()
                     End If
                 End If
                 If boss Then
-                        en.SetBounds(Me.Height + 200, Me.Width + 200, 0, 0)
+                    en.SetBounds(Me.Height + 200, Me.Width + 200, 0, 0)
 
-                    Else
-                        en.SetBounds(888 - int * 2, 237 - int * 2, 0, 0) 'changes location
-                    End If
-
+                Else
+                    en.SetBounds(888 - int * 2, 237 - int * 2, 0, 0) 'changes location
                 End If
-                'moved from hear
-                If picPlayer.Bounds.IntersectsWith(en.Bounds) Then 'May need to be moved later
+            End If
+
+            'moved from hear
+            If picPlayer.Bounds.IntersectsWith(en.Bounds) Then 'May need to be moved later
                 en.SetBounds(100, Me.Width - 100, 0, 0) ' location of the enemy
                 If prbHealth.Value <> 0 Then
-                    prbHealth.Value -= 10
+                    prbHealth.Value -= 10 'got hit by enemy
                 End If
                 If prbHealth.Value = 0 Then
                     tmrBullet.Enabled = False
                     Timer1.Enabled = False
-                    'game = "Over"
-                    'MessageBox.Show("Game Over")
                     GameOver()
                     Exit For
                 End If
@@ -313,7 +318,9 @@ Public Class Form1
         count2 = 0
         intCount = 0
         intCount3 = 0
-
+        player1.Shield = 100
+        lblShield.Visible = True
+        prgShield.Visible = True
     End Sub
 
     Public Sub StartMultiplayer()
@@ -331,6 +338,8 @@ Public Class Form1
         lblScore.Visible = False
         intCount = 0
         intCount2 = 0
+        lblShield.Visible = False
+        prgShield.Visible = False
     End Sub
 
     Public Sub GameOver()
@@ -424,7 +433,7 @@ Public Class Form1
     Private Function Bullet_Collision(bullets() As PictureBox, target As PictureBox) As Boolean
         For i As Integer = 0 To bullets.Length - 1
             If bullets(i).Bounds.IntersectsWith(target.Bounds) Then
-                bullets(i).SetBounds(-100, -100, 5, 5)
+                bullets(i).SetBounds(1000, -300, 5, 5)
                 Return True
             End If
         Next
@@ -470,7 +479,7 @@ Public Class Form1
         '    End If
         'End If
 
-        Dim Bullets() As PictureBox = {picEn, picEn2, picEn3, picEn4, picEn5}
+        Dim enBullets() As PictureBox = {picEn, picEn2, picEn3, picEn4, picEn5}
         Static picBullets(4) As Bullet
         Static count As Integer = 0
         Dim d As String = "4"
@@ -483,14 +492,27 @@ Public Class Form1
             count2 += 1
         End If
 
-        For x As Integer = 0 To Bullets.Length - 1
-            picBullets(x).Trajectory = d
+        For x As Integer = 0 To enBullets.Length - 1
+            If boss Then
+                If score \ 20 >= 2 Then
+                    Dim l As Integer = rnd.Next(0, 10)
+                    Select Case l
+                        Case 0 To 2
+                            d = "7"
+                        Case 3 To 7
+                            d = "4"
+                        Case 8 To 10
+                            d = "1"
+                    End Select
+                End If
 
-            picBullets(x).Position = Bullets(x).Location
+            End If
+            picBullets(x).Trajectory = d
+            picBullets(x).Position = enBullets(x).Location
             picBullets(x).Direction()
-            Bullets(x).Location = picBullets(x).Position
+            enBullets(x).Location = picBullets(x).Position
         Next
-        If Bullet_Collision(Bullets, picPlayer) Then
+        If Bullet_Collision(EnBullets, picPlayer) Then
             prbHealth.Value -= 10
             If prbHealth.Value = 0 Then
                 tmrEnBullet.Enabled = False
@@ -519,7 +541,14 @@ Public Class Form1
 
     Private Sub tmrBoss_Tick(sender As Object, e As EventArgs) Handles tmrBoss.Tick
         Static k As Integer = 0
-        Static king As New Enemy("king", (intCount3 \ 20) * 10, (intCount3 \ 20) * 100, 20 + score Mod 20, "none", picBoss.Location)
+        If k = 0 Then
+            king.Damage = (score \ 20) * 10
+            king.Health = (score \ 20) * 100
+            king.Speed = 20 + score Mod 20
+            king.Trajectory = "none"
+            king.Position = picBoss.Location
+            k += 1
+        End If
         Label2.Text = "Health: " & king.Health
         If bulletCol(picBoss) Then
             king.Health -= player1.Damage
@@ -527,25 +556,26 @@ Public Class Form1
         king.Position = picBoss.Location
         tmrBossAttack.Enabled = True
         If king.Health = 0 Then
+            k = 0
             Boss_end()
         End If
     End Sub
 
     Private Sub Boss_start()
-        Timer1.Enabled = False
+        Timer1.Stop()
         tmrEnBullet.Enabled = True
         tmrBoss.Enabled = True
         picBoss.Visible = True
         Label2.Visible = True
-        picEn.Visible = False
-        picEn2.Visible = False
-        picEn3.Visible = False
-        picEn4.Visible = False
-        picEn5.Visible = False
+        'picEn.Visible = False
+        'picEn2.Visible = False
+        'picEn3.Visible = False
+        'picEn4.Visible = False
+        'picEn5.Visible = False
     End Sub
 
     Private Sub Boss_end()
-        Timer1.Enabled = True
+        Timer1.Start()
         tmrBoss.Enabled = False
         tmrEnBullet.Enabled = False
         picBoss.Visible = False
@@ -554,6 +584,7 @@ Public Class Form1
         Label2.Text = "Health"
         tmrBossAttack.Enabled = False
         intCount2 = 0
+        prbHealth.Value = 100 'health is restored upon defeating the boss
         Respawn()
     End Sub
 
@@ -562,7 +593,7 @@ Public Class Form1
         Dim EnBullets() As PictureBox = {picEn, picEn2, picEn3, picEn4, picEn5}
         Dim bLoc As Point
         Select Case num
-            Case 0 To 50
+            Case 0 To 48 ' bullets
                 If game.Equals("Over") = False Then
 
                     bLoc = New Point(picBoss.Location.X, picBoss.Location.Y + 150)
@@ -576,6 +607,8 @@ Public Class Form1
                         intCount2 = 0
                     End If
                 End If
+            Case 49 To 50
+
         End Select
     End Sub
 End Class
